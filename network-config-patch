@@ -1,0 +1,8 @@
+config interface 'lan'
+	option ifname 'eth0'
+	option proto 'static'
+	option netmask '255.255.255.0'
+	option ip6assign '60'
+	option ipaddr '192.168.0.50' #修改一个静态地址，可以通过这个地址访问到树莓派
+	option gateway '192.168.0.1' #修改为路由器地址
+	option dns '192.168.0.1'     #修改为路由器地址

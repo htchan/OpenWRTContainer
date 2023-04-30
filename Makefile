@@ -13,3 +13,6 @@ run:
 build:
 	docker build -t openwrt-executable:raspi .
 
+stop-clean:
+	docker kill openwrt_1 ; docker container prune -f
+

@@ -1,6 +1,12 @@
 FROM openwrt:raspi
 
-# COPY network-config /etc/config/network
 RUN mkdir -p /var/lock
 RUN opkg update; opkg install vim-full
-CMD ['/sbin/init']
+
+WORKDIR /usr/src/app
+COPY  entrypoint.sh network-config-patch .
+
+RUN cat network-config-patch >> /etc/config/network
+
+# CMD ['/sbin/init']
+ENTRYPOINT ['/usr/src/app/entrypoint.sh']
